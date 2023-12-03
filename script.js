@@ -5,7 +5,7 @@ const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 
 yesBtn.addEventListener("click", () => {
-    question.innerHTML = "Aaaaa, I like you too";
+    question.innerHTML = "Aaaaa, I like you too, Fattt";
     gif.src = "https://raw.githubusercontent.com/DzarelDeveloper/Img/main/gif.webp";
 });
 
@@ -15,8 +15,8 @@ noBtn.addEventListener("mouseover", () => {
     const maxY = window.innerHeight - noBtnRect.height;
 
     // Batasi nilai acak agar tombol tetap di dalam batas layar
-    const randomX = Math.min(Math.max(0, Math.floor(Math.random() * maxX)), maxX);
-    const randomY = Math.min(Math.max(0, Math.floor(Math.random() * maxY)), maxY);
+    const randomX = Math.min(Math.max(2, Math.floor(Math.random() * maxX)), maxX);
+    const randomY = Math.min(Math.max(2, Math.floor(Math.random() * maxY)), maxY);
 
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
