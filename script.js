@@ -11,10 +11,14 @@ yesBtn.addEventListener("click", () => {
 
 noBtn.addEventListener("mouseover", () => {
     const noBtnRect = noBtn.getBoundingClientRect();
-    const maxX = window.innerWidth - noBtnRect.width; // Fix: Added multiplication operator
+    const maxX = window.innerWidth - noBtnRect.width;
     const maxY = window.innerHeight - noBtnRect.height;
-    const randomX = Math.floor(Math.random() * maxX); // Fix: Corrected variable name
-    const randomY = Math.floor(Math.random() * maxY);
+
+    // Batasi nilai acak agar tombol tetap di dalam batas layar
+    const randomX = Math.min(Math.max(0, Math.floor(Math.random() * maxX)), maxX);
+    const randomY = Math.min(Math.max(0, Math.floor(Math.random() * maxY)), maxY);
+
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
 });
+
