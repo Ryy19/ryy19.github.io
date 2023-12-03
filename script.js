@@ -10,15 +10,28 @@ yesBtn.addEventListener("click", () => {
 });
 
 noBtn.addEventListener("mouseover", () => {
+    // Mendapatkan dimensi tombol "Tidak"
     const noBtnRect = noBtn.getBoundingClientRect();
+
+    // Menghitung nilai maksimum untuk posisi X dan Y agar tombol tetap di dalam layar
     const maxX = window.innerWidth - noBtnRect.width;
     const maxY = window.innerHeight - noBtnRect.height;
 
-    // Batasi nilai acak agar tombol tetap di dalam batas layar
-    const randomX = Math.min(Math.max(2, Math.floor(Math.random() * maxX)), maxX);
-    const randomY = Math.min(Math.max(2, Math.floor(Math.random() * maxY)), maxY);
+    // Mendapatkan lebar dan tinggi layar Android
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
 
+    // Menghitung nilai maksimum berdasarkan lebar dan tinggi layar Android
+    const maxXAndroid = screenWidth - noBtnRect.width;
+    const maxYAndroid = screenHeight - noBtnRect.height;
+
+    // Menghasilkan nilai acak untuk posisi X dan Y dalam batas yang diizinkan
+    const randomX = Math.min(Math.max(0, Math.floor(Math.random() * maxXAndroid)), maxXAndroid);
+    const randomY = Math.min(Math.max(0, Math.floor(Math.random() * maxYAndroid)), maxYAndroid);
+
+    // Menetapkan posisi baru tombol "Tidak"
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
 });
+
 
